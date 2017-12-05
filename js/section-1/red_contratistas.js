@@ -1,10 +1,10 @@
 //Canvas dimensions and margins
 var width = 1100,
-    height = 600;
+    height = 820;
 
 var margin = {
     top: 10,
-    bottom: 200,
+    bottom: 180,
     left: 50,
     right: 50,
 }
@@ -32,7 +32,7 @@ height = height - margin.top - margin.bottom;
 var forceSimulation = d3.forceSimulation()
 						.force("collide", d3.forceCollide().radius(function(d) {return (d.group == "entidad") ? 10 : 3;})) //Prevents nodes from overlapping
 						.force("radial", d3.forceRadial(function(d) { return (d.group == "entidad") ? -50 : 300; }).y(height/2).x(width/2)) //Sends contratistas to the outside
-						.force("link", d3.forceLink().id(function(d) { return (d.id) }).strength(0.001)) //Provides link forces to the nodes connected between them
+						.force("link", d3.forceLink().id(function(d) { return (d.id) }).strength(0.01)) //Provides link forces to the nodes connected between them
             .force("center", d3.forceCenter((width / 2), (height / 2)));
 
 //Read the JSON formatted data
@@ -44,7 +44,7 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
   var edges = data.links;
 
   //Link opacity
-  var linkOpacity = 0.1;
+  var linkOpacity = 0.05;
   
   //Creation of the links of the simulation
   var drawingLinks = svgRedContratistas.selectAll(".link")
@@ -54,22 +54,22 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
                        .attr("class", "line")
                        .attr("id", function (d, i) { return i; })
                        .attr("fill", "#615")
-                       .attr("opacity", linkOpacity)
-                       .filter(function (d) {if(d.CuantiaContrato > 10000000000) {return this};});
+                       .attr("stroke-width", function(d){return d.key;})
+                       .filter(function (d) {if(d.key > 0) {return this};});
 
 
   //Creation of the size scale for the nodes
   var nodeSize = d3.scaleLinear().domain(d3.extent(nodes.map(function(d) { return +d.cuantiaContratos; })))
-  							 	 .range([2,40]);
+  							 	 .range([1.5,40]);
 
   //Establishing the scale of the nodes
   var nodeSizesNumbers = nodeSize.domain();                
-  dotScale[0] = nodeSize(nodeSizesNumbers[1]);
-  dotScale[1] = nodeSize(nodeSizesNumbers[1]/2);
-  dotScale[2] = nodeSize(nodeSizesNumbers[1]/10);
-  dotScaleValues[0] = nodeSizesNumbers[1];
-  dotScaleValues[1] = nodeSizesNumbers[1]/2;
-  dotScaleValues[2] = nodeSizesNumbers[1]/10;
+  dotScale[0] = nodeSize(nodeSizesNumbers[1] + (950000000000 - nodeSizesNumbers[1]));
+  dotScale[1] = nodeSize(nodeSizesNumbers[1]/2 + (500000000000 - nodeSizesNumbers[1]/2));
+  dotScale[2] = nodeSize(nodeSizesNumbers[1]/10 + (100000000000 - nodeSizesNumbers[1]/10));
+  dotScaleValues[0] = nodeSizesNumbers[1] + (950000000000 - nodeSizesNumbers[1]);
+  dotScaleValues[1] = nodeSizesNumbers[1]/2 + (500000000000 - nodeSizesNumbers[1]/2);
+  dotScaleValues[2] = nodeSizesNumbers[1]/10 + (100000000000 - nodeSizesNumbers[1]/10);
 
   //Adding the nodes to the canvas
   var drawingNodes = svgRedContratistas.selectAll(".node")
@@ -186,7 +186,7 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
                 }); 
             
                 drawingNodes.append("text")
-                            .filter(function(o) { connected = isConnected(d,o); if(connected == true) return this;})
+                            .filter(function(o) {connected = isConnected(d,o); if(connected == true) return this;})
                             .attr("class", "nodeLabel")
                             .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return (this.x + 5); })
                             .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return (this.y + 5); })
@@ -249,8 +249,8 @@ svgRedContratistas.append("text")
 svgRedContratistas.append("text")
                   .attr("class","figure-legend")
                   .style("font-size", "12px")
-                  .attr("x", margin.left - 10)
-                  .attr("y", height - 5)
-                  .text("Montos acumulados (millones de pesos)");
+                  .attr("x", 10)
+                  .attr("y", height - 10)
+                  .text("Presupuesto ejecutado (millones de pesos)");
 
 

@@ -393,6 +393,10 @@ CSS decorations specific to each section
     font-size: 10px;
     font-family: sans-serif;
 }
+
+circle.node {
+    cursor: pointer;
+}
 /*
 Optimation for laptop with small screen
 */
