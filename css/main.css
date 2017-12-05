@@ -1,0 +1,964 @@
+/*
+CSS specific to globe or multiple sections
+*/
+
+body {
+    background-color: #f5f5f5;
+}
+
+section h2.section-heading {
+    padding-top: 40px;
+    font-size: 40px;
+    font-family: "Times New Roman", Times, serif;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+section h3.section-subheading {
+    font-size: 18px;
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: none;
+    font-style: italic;
+    font-weight: 400;
+}
+
+section .section-note {
+    color: #872121;
+	font-weight: bold;
+}
+
+section a {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.less {
+    padding: 0px;
+    margin: 2px;
+}
+
+h2.less {
+    margin-bottom: 5px !important;
+}
+
+.navbar a.navbar-brand {
+    color: #fed136;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+}
+
+.chapter {
+    height: 100vh;
+    position: relative;
+    margin-top: 25px;
+}
+
+.chapter-intro .row {
+    margin-top: 40px;
+}
+
+.chapter-intro blockquote {
+    font-size: 15px;
+    border-left: none;
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+}
+
+.chapter-intro p {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.chapter-intro h3 {
+    font-size: 25px !important;
+}
+
+.vis-layout .axis {
+    stroke-width: 0;
+    fill: transparent;
+    font-size: large;
+    font-weight: bold;
+}
+
+.vis-layout .focus-line {
+    stroke: blue;
+    stroke-width: 2;
+    stroke-dasharray: 5, 5;
+}
+
+.vis-layout .focus-circle {
+    fill: blue;
+}
+
+.vis-layout .legend text {
+    pointer-events: none;
+    user-select: none;
+    fill: #262429;
+    font-family: sans-serif;
+}
+
+.vis-layout .legend .title text {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.vis-layout .legend .items text {
+    font-size: 13px;
+}
+
+.vis-layout .legend .items .symbol {
+    width: 24px;
+    height: 24px;
+}
+
+.vis-layout .legend .items .toggle {
+    width: 110px;
+    height: 24px;
+}
+
+.vis-layout .legend .items circle {
+    r: 10px;
+}
+
+.vis-layout .up.annotation path {
+    stroke: #FF0000;
+    fill: none;
+}
+
+.vis-layout .up.annotation .up.path.connector-arrow, .up.title text, .up.annotation text, .up.annotation.callout.circle .annotation-subject path {
+    fill: #FF0000;
+}
+
+.vis-layout .down.annotation path {
+    stroke: #00b300;
+    fill: none;
+}
+
+.vis-layout .down.annotation .up.path.connector-arrow, .down.title text, .down.annotation text, .down.annotation.callout.circle .annotation-subject path {
+    fill: #00b300;
+}
+
+.vis-layout .annotation-note-bg {
+    fill: rgba(255, 255, 255, 0);
+}
+
+.vis-layout .annotation-note-title {
+    font-size: large;
+    font-weight: bold;
+    user-select: none;
+    pointer-events: none;
+}
+
+.vis-layout .annotation.xythreshold {
+    cursor: move;
+}
+
+.vis-layout .annotation text {
+    cursor: pointer;
+}
+
+.vis-layout .annotation.event path {
+    stroke: #E8336D;
+    stroke-width: 2px;
+    fill: none;
+}
+
+.vis-layout .annotation.event text {
+    fill: #E8336D;
+}
+
+.vis-layout .tooltip {
+    position: absolute;
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+.vis-layout .tooltip p {
+    margin: 3px;
+    font-size: 15px;
+}
+
+.vis-layout .tooltip .emphasize {
+    font-size: large;
+    font-weight: bold;
+}
+
+.vis-layout .container {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 100%;
+}
+
+.vis-layout .insights-wrapper {
+    background-color: rgba(182, 195, 184, 0.2);
+    height: 50vh;
+    position: absolute;
+    padding: 20px;
+    width: 45%;
+    text-align: justify;
+}
+
+.vis-layout .insights-header {
+    font-size: 1.55em;
+    line-height: 1.35em;
+    font-weight: 700;
+    border-bottom: 0.5px solid Black;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.vis-layout .insights-text {
+    font-size: 1em;
+}
+
+.vis-layout .insights-next {
+    position: absolute;
+    text-align: center;
+    width: 40%;
+    bottom: 20px;
+    right: 20px;
+    padding: 5px;
+    font-weight: 700;
+}
+
+.vis-layout .stream-chart {
+    width: 100%;
+    height: 65vh;
+}
+
+.vis-layout a {
+    color: hotpink;
+}
+
+.red-text {
+    color: Red;
+}
+
+.blue-text {
+    color: Blue;
+}
+
+.orange-text {
+    color: OrangeRed;
+}
+
+.green-text {
+    color: Green;
+}
+
+.purple-text {
+    color: Purple;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.heavyweight {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+
+/*
+CSS decorations specific to each section
+*/
+
+#navbar a {
+    cursor: default;
+    color: white;
+}
+
+#navbar .active a, #navbar a:hover {
+    color: #fed136;
+}
+
+#intro {
+    background: url('../img/intro.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#intro p.intro-note {
+    color: #D3D3D3;
+    font-size: 14px;
+}
+
+#intro .intro-text {
+    padding-top: 350px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#intro .intro-text .intro-heading {
+    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* text-transform: uppercase; */
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 50px;
+    margin-bottom: 25px;
+}
+
+#intro .intro-text blockquote {
+    border-left: none;
+    font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: italic;
+    margin-bottom: 0px;
+}
+
+#preface .row, #summary .row {
+    margin-top: 50px;
+}
+
+#preface h3 {
+    font-size: 20px;
+}
+
+#vis-secop .left-section {
+    margin-top: 50px;
+}
+
+#vis-secop div.offset {
+    padding-top: 40px;
+}
+
+#vis-secop .axis, #debt .axis, #fed-vis .axis {
+    stroke-width: 0;
+    fill: transparent;
+}
+
+#vis-secop .legend text, #debt .legend text, #fed-vis .legend text {
+    pointer-events: none;
+    user-select: none;
+    font-weight: bold;
+}
+
+#vis-secop .tooltip, #debt .tooltip, #fed-vis .tooltip {
+    position: absolute;
+    width: 240px;
+    height: auto;
+    padding: 10px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+#vis-secop .tooltip p, #debt .tooltip p, #fed-vis .tooltip p {
+    margin: 3px;
+}
+
+#vis-secop .tooltip .emphasize, #debt .tooltip .emphasize, #fed-vis .tooltip .emphasize {
+    font-size: large;
+    font-weight: bold;
+}
+
+#vis-secop .container {
+    margin-top: 60px;
+}
+
+#debt .container {
+    margin-top: 80px;
+}
+
+.figure-legend {
+    font-size: 10px;
+    font-family: sans-serif;
+    font-style: italic;
+}
+
+.nodeLabel {
+    font-size: 10px;
+    font-family: sans-serif;
+}
+/*
+Optimation for laptop with small screen
+*/
+
+@media (max-height: 900px) {
+    section h2.section-heading {
+        padding-top: 25px;
+        font-size: 32px;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+    .chapter-intro p {
+        font-size: 16px;
+        text-align: justify;
+    }
+    .chapter-intro h3 {
+        font-size: 20px !important;
+    }
+    .vis-layout .insights-text {
+        font-size: 0.85em;
+    }
+    .vis-layout .legend .title text {
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .vis-layout .legend .items text {
+        font-size: 11px;
+    }
+    .vis-layout .legend .items .symbol {
+        width: 18px;
+        height: 18px;
+    }
+    .vis-layout .legend .items .toggle {
+        width: 95px;
+        height: 18px;
+    }
+    .vis-layout .legend .items circle {
+        r: 8px;
+    }
+    #intro .intro-text {
+        padding-top: 200px;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    #preface .row, #summary .row {
+        margin-top: 20px;
+    }
+    #fed-vis h2, #income-expense h2, #vis-secop h2 {
+        font-size: 25px;
+        margin-top: 25px;
+        padding-top: 0px;
+    }
+    #fed-vis h3, #income-expense h3, #vis-secop h3 {
+        font-size: 15px;
+        margin-top: 5px;
+    }
+    #fed-vis p, #income-expense p, {
+        font-size: 10px;
+    }
+    #fed-vis h2.second {
+        margin-top: 5px;
+    }
+    #income-expense .filters a {
+        display: block;
+        width: auto;
+        padding: 2px 4px;
+        font-size: 0.85em;
+        color: #919292;
+        background: #F0F4F5;
+        cursor: pointer;
+        border-left: 1px solid #CCCCCC;
+        border-bottom: 1px solid #CCCCCC;
+        border-right: 1px solid #CCCCCC;
+        overflow: hidden;
+    }
+    #income-expense .chart {
+        float: left;
+        padding-top: 0px;
+        border-left: 0px dotted #e2e2e2;
+        border-top: 0px dotted #e2e2e2;
+    }
+
+    #debt .container {
+        margin-top: 25px;
+    }
+
+    #vis-secop .container {
+        margin-top: 25px;
+        margin-left: 4%;
+    }
+}
+
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2,
+.col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4,
+.col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5,
+.col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7,
+.col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9,
+.col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10,
+.col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12,
+.col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 992px) {
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
+    .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        float: left;
+    }
+
+    .col-md-12 {
+        width: 100%;
+    }
+
+    .col-md-11 {
+        width: 91.66666667%;
+    }
+
+    .col-md-10 {
+        width: 83.33333333%;
+    }
+
+    .col-md-9 {
+        width: 75%;
+    }
+
+    .col-md-8 {
+        width: 66.66666667%;
+    }
+
+    .col-md-7 {
+        width: 58.33333333%;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+
+    .col-md-5 {
+        width: 41.66666667%;
+    }
+
+    .col-md-4 {
+        width: 33.33333333%;
+    }
+
+    .col-md-3 {
+        width: 25%;
+    }
+
+    .col-md-2 {
+        width: 16.66666667%;
+    }
+
+    .col-md-1 {
+        width: 8.33333333%;
+    }
+
+    .col-md-pull-12 {
+        right: 100%;
+    }
+
+    .col-md-pull-11 {
+        right: 91.66666667%;
+    }
+
+    .col-md-pull-10 {
+        right: 83.33333333%;
+    }
+
+    .col-md-pull-9 {
+        right: 75%;
+    }
+
+    .col-md-pull-8 {
+        right: 66.66666667%;
+    }
+
+    .col-md-pull-7 {
+        right: 58.33333333%;
+    }
+
+    .col-md-pull-6 {
+        right: 50%;
+    }
+
+    .col-md-pull-5 {
+        right: 41.66666667%;
+    }
+
+    .col-md-pull-4 {
+        right: 33.33333333%;
+    }
+
+    .col-md-pull-3 {
+        right: 25%;
+    }
+
+    .col-md-pull-2 {
+        right: 16.66666667%;
+    }
+
+    .col-md-pull-1 {
+        right: 8.33333333%;
+    }
+
+    .col-md-pull-0 {
+        right: auto;
+    }
+
+    .col-md-push-12 {
+        left: 100%;
+    }
+
+    .col-md-push-11 {
+        left: 91.66666667%;
+    }
+
+    .col-md-push-10 {
+        left: 83.33333333%;
+    }
+
+    .col-md-push-9 {
+        left: 75%;
+    }
+
+    .col-md-push-8 {
+        left: 66.66666667%;
+    }
+
+    .col-md-push-7 {
+        left: 58.33333333%;
+    }
+
+    .col-md-push-6 {
+        left: 50%;
+    }
+
+    .col-md-push-5 {
+        left: 41.66666667%;
+    }
+
+    .col-md-push-4 {
+        left: 33.33333333%;
+    }
+
+    .col-md-push-3 {
+        left: 25%;
+    }
+
+    .col-md-push-2 {
+        left: 16.66666667%;
+    }
+
+    .col-md-push-1 {
+        left: 8.33333333%;
+    }
+
+    .col-md-push-0 {
+        left: auto;
+    }
+
+    .col-md-offset-12 {
+        margin-left: 100%;
+    }
+
+    .col-md-offset-11 {
+        margin-left: 91.66666667%;
+    }
+
+    .col-md-offset-10 {
+        margin-left: 83.33333333%;
+    }
+
+    .col-md-offset-9 {
+        margin-left: 75%;
+    }
+
+    .col-md-offset-8 {
+        margin-left: 66.66666667%;
+    }
+
+    .col-md-offset-7 {
+        margin-left: 58.33333333%;
+    }
+
+    .col-md-offset-6 {
+        margin-left: 50%;
+    }
+
+    .col-md-offset-5 {
+        margin-left: 41.66666667%;
+    }
+
+    .col-md-offset-4 {
+        margin-left: 33.33333333%;
+    }
+
+    .col-md-offset-3 {
+        margin-left: 25%;
+    }
+
+    .col-md-offset-2 {
+        margin-left: 16.66666667%;
+    }
+
+    .col-md-offset-1 {
+        margin-left: 8.33333333%;
+    }
+
+    .col-md-offset-0 {
+        margin-left: 0%;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
+    .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+        float: left;
+    }
+
+    .col-md-12 {
+        width: 100%;
+    }
+
+    .col-md-11 {
+        width: 91.66666667%;
+    }
+
+    .col-md-10 {
+        width: 83.33333333%;
+    }
+
+    .col-md-9 {
+        width: 75%;
+    }
+
+    .col-md-8 {
+        width: 66.66666667%;
+    }
+
+    .col-md-7 {
+        width: 58.33333333%;
+    }
+
+    .col-md-6 {
+        width: 50%;
+    }
+
+    .col-md-5 {
+        width: 41.66666667%;
+    }
+
+    .col-md-4 {
+        width: 33.33333333%;
+    }
+
+    .col-md-3 {
+        width: 25%;
+    }
+
+    .col-md-2 {
+        width: 16.66666667%;
+    }
+
+    .col-md-1 {
+        width: 8.33333333%;
+    }
+
+    .col-md-pull-12 {
+        right: 100%;
+    }
+
+    .col-md-pull-11 {
+        right: 91.66666667%;
+    }
+
+    .col-md-pull-10 {
+        right: 83.33333333%;
+    }
+
+    .col-md-pull-9 {
+        right: 75%;
+    }
+
+    .col-md-pull-8 {
+        right: 66.66666667%;
+    }
+
+    .col-md-pull-7 {
+        right: 58.33333333%;
+    }
+
+    .col-md-pull-6 {
+        right: 50%;
+    }
+
+    .col-md-pull-5 {
+        right: 41.66666667%;
+    }
+
+    .col-md-pull-4 {
+        right: 33.33333333%;
+    }
+
+    .col-md-pull-3 {
+        right: 25%;
+    }
+
+    .col-md-pull-2 {
+        right: 16.66666667%;
+    }
+
+    .col-md-pull-1 {
+        right: 8.33333333%;
+    }
+
+    .col-md-pull-0 {
+        right: auto;
+    }
+
+    .col-md-push-12 {
+        left: 100%;
+    }
+
+    .col-md-push-11 {
+        left: 91.66666667%;
+    }
+
+    .col-md-push-10 {
+        left: 83.33333333%;
+    }
+
+    .col-md-push-9 {
+        left: 75%;
+    }
+
+    .col-md-push-8 {
+        left: 66.66666667%;
+    }
+
+    .col-md-push-7 {
+        left: 58.33333333%;
+    }
+
+    .col-md-push-6 {
+        left: 50%;
+    }
+
+    .col-md-push-5 {
+        left: 41.66666667%;
+    }
+
+    .col-md-push-4 {
+        left: 33.33333333%;
+    }
+
+    .col-md-push-3 {
+        left: 25%;
+    }
+
+    .col-md-push-2 {
+        left: 16.66666667%;
+    }
+
+    .col-md-push-1 {
+        left: 8.33333333%;
+    }
+
+    .col-md-push-0 {
+        left: auto;
+    }
+
+    .col-md-offset-12 {
+        margin-left: 100%;
+    }
+
+    .col-md-offset-11 {
+        margin-left: 91.66666667%;
+    }
+
+    .col-md-offset-10 {
+        margin-left: 83.33333333%;
+    }
+
+    .col-md-offset-9 {
+        margin-left: 75%;
+    }
+
+    .col-md-offset-8 {
+        margin-left: 66.66666667%;
+    }
+
+    .col-md-offset-7 {
+        margin-left: 58.33333333%;
+    }
+
+    .col-md-offset-6 {
+        margin-left: 50%;
+    }
+
+    .col-md-offset-5 {
+        margin-left: 41.66666667%;
+    }
+
+    .col-md-offset-4 {
+        margin-left: 33.33333333%;
+    }
+
+    .col-md-offset-3 {
+        margin-left: 25%;
+    }
+
+    .col-md-offset-2 {
+        margin-left: 16.66666667%;
+    }
+
+    .col-md-offset-1 {
+        margin-left: 8.33333333%;
+    }
+
+    .col-md-offset-0 {
+        margin-left: 0%;
+    }
+}
+
+.area {
+	position: relative;
+}
+
+.area:hover .mask {
+	display: block;
+	cursor: pointer;
+	opacity: 100;
+	transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+}
+
+.mask {
+	position: absolute;
+	/* background-color: rgba(226, 23, 37,0.5); /*Red*/
+	background-color: rgba(192,192,192,0.3); /* Gray */
+	/* background-color: rgba(255,255,0,0.3); Yelow */
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	opacity: 0;
+}
+
+.mask p {
+	color: #fff;
+	font-weight: 700;
+}
+
+.mask i {
+	font-size: 100px;
+	/* color: #fff; */
+	color: #ff007f;
+}
+
+.mini .mask p {
+	display: none;
+}
+

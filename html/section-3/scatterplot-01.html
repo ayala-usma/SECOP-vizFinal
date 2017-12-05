@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>Visualization</title>
+	<link href="../../css/main.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/table.css">
+	<link rel="stylesheet" href="../../css/scatter.css" charset="utf-8">
+  </head>	
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            <a class="navbar-brand">Colombia Compra Eficiente?</a>
+        </div>
+    </nav>
+	<div id="vis-secop">
+	<!-- <div> -->
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<h2 class="section-heading">Contratos que infringen los principios de Economía y Eficiencia</h2>
+					<p class="red-text underline less">Instrucciones de Interacción
+					</p>
+					<br>
+					<ul>
+						<li>Seleccione el año de la firma del contrato y el Orden Territorial de las Entidades Contratantes.</li>
+						<li>Pase el cursor sobre el gráfico y haga click en el círculo para revelar detalles del Contrato.</li>
+						<li>Intercambie la escala del eje “X”, expresando los valores en “Exceso de Tiempo” y “Exceso Costos” con el botón respectivo.</li>
+						<li>Realice Zoom de la gráfica con el "Mouse Scroll".</li>
+						<li>Focalice un área de su interés arrastrando y soltando el mouse sobre el diagrama</li>
+						<li>Encuentre la información detallada del contrato haciendo click en el enlace con la página de Contratación Estatal (Colombia Compra Eficiente).</li>
+					</ul>
+					<p class="lato">Fuente de Datos: SECOP I</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="infoview">
+		Periodo
+		<select id="mySelectAno">
+			<option selected>2006-2010</option>
+			<option>2011</option>
+			<option>2012</option>
+			<option>2013</option>
+			<option>2014-215</option>
+		</select>
+		Orden Territorial
+		<select id="mySelectOrdenEntidad">
+			<option value="all" selected>(Todos)</option>
+			<option value="-01">Distrito Capital</option>
+			<option value="-02">Nacional Centralizado</option>
+			<option value="-03">Nacional Descentralizado</option>
+			<option value="-04">Territorial Departamental Centralizado</option>
+			<option value="-05">Territorial Departamental Descentralizado</option>
+			<option value="-06">Territorial Distrital Municipal Nivel 1</option>
+			<option value="-07">Territorial Distrital Municipal Nivel 2</option>
+			<option value="-08">Territorial Distrital Municipal Nivel 3</option>
+			<option value="-09">Territorial Distrital Municipal Nivel 4</option>
+			<option value="-10">Territorial Distrital Municipal Nivel 5</option>
+			<option value="-11">Territorial Distrital Municipal Nivel 6</option>
+		</select>
+		<button type="button" onclick="changeFilters()" id="btnviz">Visualizar</button>
+		<input type="button" name="xAxis" value="Exceso Costos" id="InPorcentajeExcesoCosto">
+		<input type="button" name="xAxis" value="Exceso Tiempo" id="InPorcentajeExcesoPlazo">
+		<script>
+			document.getElementById('InPorcentajeExcesoCosto').style.visibility = 'hidden';
+			document.getElementById('InPorcentajeExcesoPlazo').style.visibility = 'hidden';
+			document.getElementById('btnviz').style.visibility = 'hidden';
+		</script>
+		<br>
+		<table>
+		  <tr>
+			<th>Nombre Entidad</th>
+			<th>Detalle Objeto Contratar</th>
+			<th>Tipo Contrato</th>
+			<th>Municipios Ejecución</th>
+			<th>Consulta Proceso SECOP I</th>
+		  </tr>
+		  <tr>
+			<td>
+				<textarea readonly rows="3" cols="30" id="txtAreaNombreEntidad"></textarea>
+			</td>
+			<td><textarea readonly rows="3" cols="30" id="txtAreaDetalleObjetoContratar"></textarea></td>
+			<td>
+				<textarea readonly rows="3" cols="60" id="txtAreaDetalleTipoContrato"></textarea>
+			</td>
+			<td>
+				<textarea readonly rows="3" cols="20" id="txtAreaDetalleMunicipiosEjecucion"></textarea>
+			</td>
+			<td>
+				<p class="red-text underline less">
+				<a href="#" id="urlContrato" target="_blank">www.contratos.gov.co</a>
+				</p>
+			</td>
+		  </tr>
+		</table>
+	</div>
+    <div id="scatter">
+		<script src="../../js/d3.v3.min.js"></script>
+		<script src="../../js/d3.tip.v0.6.3.js"></script> 
+		<script src="../../js/accounting.min.js"></script>
+		<script src="../../js/section-3/scatter-01.js" charset="utf-8"></script>
+		<script src="../../js/section-3/changeFilters.js"></script>
+		<script>changeFilters();</script>
+	</div>
+  </body>
+</html>

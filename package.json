@@ -1,0 +1,29 @@
+{
+  "name": "secop",
+  "version": "1.0.0",
+  "description": "VIS Project Secop Data - Colombia Compra - www.colombiacompra.gov.co",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.1",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oswaldovh69/SECOP-visProject.git"
+  },
+  "keywords": [
+    "VIS",
+    "Secop",
+    "D3"
+  ],
+  "author": "David Ayala Usma, Felipe Campos y Oswaldo Vargas Holguín",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oswaldovh69/SECOP-visProject/issues"
+  },
+  "homepage": "https://github.com/oswaldovh69/SECOP-visProject#readme"
+}
