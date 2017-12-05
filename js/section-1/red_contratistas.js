@@ -188,8 +188,8 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
                 drawingNodes.append("text")
                             .filter(function(o) { connected = isConnected(d,o); if(connected == true) return this;})
                             .attr("class", "nodeLabel")
-                            .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return d.x; })
-                            .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return d.y; })
+                            .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return this.x; })
+                            .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return this.y; })
                             .text(function(o) { return o.name });
 
                 // also style link accordingly
