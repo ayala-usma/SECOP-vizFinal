@@ -188,8 +188,8 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
                 drawingNodes.append("text")
                             .filter(function(o) { connected = isConnected(d,o); if(connected == true) return this;})
                             .attr("class", "nodeLabel")
-                            .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return o.x; })
-                            .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return o.y; })
+                            .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return d.x; })
+                            .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return d.y; })
                             .text(function(o) { return o.name });
 
                 // also style link accordingly
@@ -232,9 +232,10 @@ console.log(dotScaleValues)
                     .enter()
                     .append("text")
                     .attr("class", "figure-legend")
+                    .style("font-size", "12px")
                     .attr("x", function(d,i){return margin.left + 130})
                     .attr("y", function(d){return height + 4 + nodeSize(d)})
-                    .text(function(d) {return numberFormat(d)});
+                    .text(function(d) {return numberFormat(d / 1000000)});
 });
 
 //Source caption
@@ -243,5 +244,13 @@ svgRedContratistas.append("text")
                   .attr("x", width - 4*margin.right)
                   .attr("y", height + (margin.bottom / 3))
                   .text("Fuente de los datos: SECOP I");
+
+//Sphere size caption
+svgRedContratistas.append("text")
+                  .attr("class","figure-legend")
+                  .style("font-size", "12px")
+                  .attr("x", margin.left - 10)
+                  .attr("y", height - 5)
+                  .text("Montos acumulados (millones de pesos)");
 
 
