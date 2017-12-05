@@ -104,8 +104,8 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
                   .on("click", clickNode);
 
   	  drawingNodes.append("title")
-  	  			      .text(function(d) { if(d.group == "contratista") {return "Nombre: " + d.name + "\n" + "Cuantía total acumulada devengada: " + numberFormat(d.cuantiaContratos) + "\n" + "Tipo: Contratista";} 
-  	  									else {return "Nombre: " + d.name + "\n" + "Cuantía total acumulada otorgada: " + numberFormat(d.cuantiaContratos) + "\n" + "Tipo: Entidad contratante";} });			  
+  	  			      .text(function(d) { if(d.group == "contratista") {return "Name: " + d.name + "\n" + "Cummulative sum of the obtained contracts: " + numberFormat(d.cuantiaContratos) + " pesos" + "\n" + "Type: Contractor";} 
+  	  									else {return "Name: " + d.name + "\n" + "Cummulative sum of the awarded contracts : " + numberFormat(d.cuantiaContratos) + " pesos" +"\n" + "Type: Government institution";} });			  
 
   //Carrying out the simulation
   forceSimulation.nodes(nodes).on("tick", ticked);
@@ -301,9 +301,9 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
   svgRedContratistas.append("text")
                     .attr("class","figure-legend")
                     .style("font-size", "12px")
-                    .attr("x", width - 3*margin.right)
+                    .attr("x", width - 6*margin.right + 20)
                     .attr("y", margin.top)
-                    .text("Presupuesto ejecutado (millones de pesos)");
+                    .text("Cummulative sum of the contract amounts (millions of pesos)");
 
   //Link scale
   svgRedContratistas.selectAll(".linkScale")
@@ -335,7 +335,7 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
                     .style("font-size", "12px")
                     .attr("x", width - 3*margin.right)
                     .attr("y", height/2 - 25)
-                    .text("Contratos celebrados entre las partes");
+                    .text("Number of contracts between the institutions");
 
   //Node color legend
   svgRedContratistas.selectAll(".colorLegendShape")
@@ -355,9 +355,9 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
                     .attr("class", "colorLegendText")
                     .style("font-size", "13px")
                     .style("text-transform", "capitalize")
-                    .attr("x", width - 40)
+                    .attr("x", width - 60)
                     .attr("y", function(d,i){return 3*height/4 + 40 + (i*45)})
-                    .text(function(d) {return d});
+                    .text(function(d) {return (d == "entidad") ? "Govt. institution" : "Contractor"});
 
   //Node color title
   svgRedContratistas.append("text")
@@ -365,7 +365,7 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
                     .style("font-size", "12px")
                     .attr("x", width - 3*margin.right)
                     .attr("y", 3*height/4)
-                    .text("Tipo de organización");
+                    .text("Organization type");
 
 
   //Data source caption
@@ -373,8 +373,13 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
                     .attr("class","figure-legend")
                     .attr("x", width - (margin.right + 3))
                     .attr("y", height + (margin.bottom / 3))
-                    .text("Fuente de los datos: SECOP I");
+                    .text("Data source: SECOP I");
 
-
+  //Data source caption
+  svgRedContratistas.append("text")
+                    .attr("class","figure-legend")
+                    .attr("x", margin.left)
+                    .attr("y", height + (margin.bottom / 3))
+                    .html("This dataset contains data from 5307 contracts celebrated between 131 government institutions and 3118 contractors, representing approximately 0.01% of the SECOP I registries");
 });
 
