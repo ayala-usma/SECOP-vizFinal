@@ -1,6 +1,6 @@
 //Canvas dimensions and margins
-var width = 1000,
-    height = 800;
+var width = 1100,
+    height = 850;
 
 var margin = {
     top: 10,
@@ -30,7 +30,7 @@ height = height - margin.top - margin.bottom;
 
 //Creation of the simulation parameters: Creation of the forces that will mandate the simulation
 var forceSimulation = d3.forceSimulation()
-						.force("collide", d3.forceCollide().radius(function(d) {return (d.group == "entidad") ? 15 : 3;})) //Prevents nodes from overlapping
+						.force("collide", d3.forceCollide().radius(function(d) {return (d.group == "entidad") ? 10 : 3;})) //Prevents nodes from overlapping
 						.force("radial", d3.forceRadial(function(d) { return (d.group == "entidad") ? -50 : 300; }).y(height/2).x(width/2)) //Sends contratistas to the outside
 						.force("link", d3.forceLink().id(function(d) { return (d.id) }).strength(0.001)) //Provides link forces to the nodes connected between them
             .force("center", d3.forceCenter((width / 2), (height / 2)));
@@ -188,8 +188,8 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
                 drawingNodes.append("text")
                             .filter(function(o) { connected = isConnected(d,o); if(connected == true) return this;})
                             .attr("class", "nodeLabel")
-                            .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return this.x; })
-                            .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return this.y; })
+                            .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return (this.x + 5); })
+                            .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return (this.y + 5); })
                             .text(function(o) { return o.name });
 
                 // also style link accordingly
