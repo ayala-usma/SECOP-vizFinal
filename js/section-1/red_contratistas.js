@@ -47,7 +47,7 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
 
   //Creation of the size scale for the nodes and the links width
   var nodeSize = d3.scaleLinear().domain(d3.extent(nodes.map(function(d) { return +d.cuantiaContratos; })))
-                   .range([1.7,40]);
+                   .range([2,40]);
 
   var edgeSize = d3.scaleLinear().domain(d3.extent(edges.map(function(d) { return +d.key; }))).range([1, 6]);
 
@@ -100,7 +100,8 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
   	  			  	   .on("drag", dragged)
   	  			  	   .on("end", dragended))
                   .on("mouseover", mouseOver(0.2))
-                  .on("mouseout", mouseOut);
+                  .on("mouseout", mouseOut)
+                  .on("click", clickNode);
 
   	  drawingNodes.append("title")
   	  			      .text(function(d) { if(d.group == "contratista") {return "Nombre: " + d.name + "\n" + "Cuantía total acumulada devengada: " + numberFormat(d.cuantiaContratos) + "\n" + "Tipo: Contratista";} 
@@ -110,77 +111,80 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
   forceSimulation.nodes(nodes).on("tick", ticked);
   forceSimulation.force("link").links(edges);
 
-  //Ticked function to establish the simulation behavior
-	function ticked() {
-    drawingLinks.attr("d", positionLink);
-		drawingNodes.attr("transform", positionNode);
-	}
-  
-  //Builds a dictionary of nodes that are linked
-    var linkedByIndex = {};
-    edges.forEach(function(d) {
-        linkedByIndex[d.source.name + "," + d.target.name] = 1;
-    });
-    
-   //Check the dictionary to see if nodes are linked
-    function isConnected(a, b) {
-        return linkedByIndex[a.name + "," + b.name] || linkedByIndex[b.name + "," + a.name] || a.name === b.name;
-    }
+     
+  //BEHAVIOR FUNCTIONS OF THE VISUALIZATION
 
-  function positionLink(d) {
-      var offset = 2;
+      //Ticked function to establish the simulation behavior
+    	function ticked() {
+        drawingLinks.attr("d", positionLink);
+    		drawingNodes.attr("transform", positionNode);
+    	}
+      
+      //Builds a dictionary of nodes that are linked
+        var linkedByIndex = {};
+        edges.forEach(function(d) {
+            linkedByIndex[d.source.name + "," + d.target.name] = 1;
+        });
+        
+       //Check the dictionary to see if nodes are linked
+        function isConnected(a, b) {
+            return linkedByIndex[a.name + "," + b.name] || linkedByIndex[b.name + "," + a.name] || a.name === b.name;
+        }
 
-      var midpoint_x = (d.source.x + d.target.x) / 2;
-      var midpoint_y = (d.source.y + d.target.y) / 2;
+        function positionLink(d) {
+            var offset = 2;
 
-      var dx = (d.target.x - d.source.x);
-      var dy = (d.target.y - d.source.y);
+            var midpoint_x = (d.source.x + d.target.x) / 2;
+            var midpoint_y = (d.source.y + d.target.y) / 2;
 
-      var normalise = Math.sqrt((dx * dx) + (dy * dy));
+            var dx = (d.target.x - d.source.x);
+            var dy = (d.target.y - d.source.y);
 
-      var offSetX = midpoint_x + offset*(dx/normalise);
-      var offSetY = midpoint_y - offset*(dy/normalise);
+            var normalise = Math.sqrt((dx * dx) + (dy * dy));
 
-      return "M" + d.source.x + "," + d.source.y +
-          "S" + offSetX + "," + offSetY +
-          " " + d.target.x + "," + d.target.y;
-  }
+            var offSetX = midpoint_x + offset*(dx/normalise);
+            var offSetY = midpoint_y - offset*(dy/normalise);
 
-  //Function to define the node position within the boundaries of the SVG canvas
-    function positionNode(d) {          
-      	if (d.x < 0) {
-            d.x = 0 + 4
-        };
-        if (d.y < 0) {
-            d.y = 0 + 4
-        };
-        if (d.x > width) {
-            d.x = width - 2
-        };
-        if (d.y > height) {
-            d.y = height - 2
-        };
-   
-        return "translate(" + d.x + "," + d.y + ")";
-    }
+            return "M" + d.source.x + "," + d.source.y +
+                "S" + offSetX + "," + offSetY +
+                " " + d.target.x + "," + d.target.y;
+        }
 
-   //Functions that define the drag actions
-      function dragstarted(d) {
-      if (!d3.event.active) forceSimulation.alphaTarget(0).restart();
-      d.fx = d.x;
-      d.fy = d.y;
-    }
+        //Function to define the node position within the boundaries of the SVG canvas
+          function positionNode(d) {          
+            	if (d.x < 0) {
+                  d.x = 0 + 4
+              };
+              if (d.y < 0) {
+                  d.y = 0 + 4
+              };
+              if (d.x > width) {
+                  d.x = width - 2
+              };
+              if (d.y > height) {
+                  d.y = height - 2
+              };
+         
+              return "translate(" + d.x + "," + d.y + ")";
+          }
 
-    function dragged(d) {
-      d.fx = d3.event.x;
-      d.fy = d3.event.y;
-    }
+       //Functions that define the drag actions
+          function dragstarted(d) {
+          if (!d3.event.active) forceSimulation.alphaTarget(0).restart();
+          d.fx = d.x;
+          d.fy = d.y;
+        }
 
-    function dragended(d) {
-      if (!d3.event.active) forceSimulation.alphaTarget(0.1);
-      d.fx = null;
-      d.fy = null;
-    }
+        function dragged(d) {
+          d.fx = d3.event.x;
+          d.fy = d3.event.y;
+        }
+
+        function dragended(d) {
+          if (!d3.event.active) forceSimulation.alphaTarget(0.1);
+          d.fx = null;
+          d.fy = null;
+        }
   
         // fade nodes on hover
         function mouseOver(opacity) {
@@ -197,13 +201,6 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
                     return thisOpacity;
                 }); 
             
-                drawingNodes.append("text")
-                            .filter(function(o) {connected = isConnected(d,o); if(connected == true) return this;})
-                            .attr("class", "nodeLabel")
-                            .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return (this.x + 5); })
-                            .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return (this.y + 5); })
-                            .attr("fill", "#666666")
-                            .text(function(o) { return o.name });
 
                 // also style link accordingly
                 drawingLinks.style("opacity", function(o) {
@@ -221,11 +218,62 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
         function mouseOut() {
             drawingNodes.style("stroke-opacity", 1);
             drawingNodes.style("fill-opacity", 1);
-            drawingNodes.selectAll("text.nodeLabel").remove()
             drawingLinks.style("opacity", 0.01);
             drawingLinks.style("stroke", "#615");
         }
+
+    //Click behavior of nodes
+      function clickNode(d) {
+          
+          //Switching between active and inactive states 
+          var active = d.active ? false : true       
+          d.active = active
+
+          //Removes previous text labels                      
+          drawingNodes.selectAll("text.nodeLabel").remove();
+
+          //Removes any previous text written over the boxes
+          d3.selectAll(".temporal")
+            .remove();
+
+          //Colors the information box
+          d3.select(".informacion")
+            .style("background-color", function() {return active ? color(colorGroup.indexOf(d.group)) + "55": "#f5f5f5"});
+
+          //Inserts company name
+          d3.select(".nombre-organizacion")
+            .style("background-color", function() {return active ? color(colorGroup.indexOf(d.group)): "#f5f5f5"})
+            .append("h3")
+            .attr("class", "temporal")
+            .text(function() {return active ? (d.name + " (" + d.group + ")"): ""})
+            .exit();
+
+          //Inserts cummulative contract value
+          d3.select(".cuantia-contratos")
+            .append("h4")
+            .attr("class", "temporal")
+            .text(function() {return active ? "\t" + "$" + numberFormat(d.cuantiaContratos) + " pesos": ""})
+            .exit();
+
+          //Inserts cummulative additions to the contract
+          d3.select(".cuantia-adiciones")
+            .append("h4")
+            .attr("class", "temporal")
+            .text(function() {return active ? "\t" + "$" + numberFormat(d.cuantiaAdiciones) + " pesos": ""})
+            .exit();
+
+          drawingNodes.append("text")
+                    .filter(function(o) {connected = isConnected(d,o); if(connected == true) return this;})
+                    .attr("class", "nodeLabel")
+                    .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return (this.x + 5); })
+                    .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return (this.y + 5); })
+                    .attr("fill", "#666666")
+                    .text(function(o) { return o.name });
   
+      }
+
+//CREATION OF VISUALIZATION SCALES AND LEGENDS
+
   //Circle scale
   svgRedContratistas.selectAll(".scaleDot")
                     .data(dotScale)
@@ -320,13 +368,12 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
                     .text("Tipo de organización");
 
 
-  //Source caption
+  //Data source caption
   svgRedContratistas.append("text")
                     .attr("class","figure-legend")
                     .attr("x", width - (margin.right + 3))
                     .attr("y", height + (margin.bottom / 3))
                     .text("Fuente de los datos: SECOP I");
-
 
 
 });
