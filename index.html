@@ -39,16 +39,6 @@
 </head>
 
 <body class="viewing-page-1">
-    <ul class="onepage-pagination">
-        <li><a data-index="1" href="/#1" class="active"></a></li>
-        <li><a data-index="2" href="/#2" class=""></a></li>
-        <li><a data-index="3" href="/#3"></a></li>
-        <li><a data-index="4" href="/#4"></a></li>
-        <li><a data-index="5" href="/#5"></a></li>
-        <li><a data-index="6" href="/#6"></a></li>
-        <li><a data-index="7" href="/#7"></a></li>
-        <li><a data-index="8" href="/#8"></a></li>
-    </ul>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -196,7 +186,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h2 class="section-heading">Late contracts: Free money</h2>
+                            <h2 class="section-heading">Late contracts: Where is the penalty fee?</h2>
                             <h3 class="section-subheading">Viz about the amount of late contracts made per year in a specific place</h3>
                             <p class="text-muted"></p>
                         </div>
@@ -307,21 +297,25 @@
                 <div class="container">
                     <div class="row ">
                         <div class="col-lg-12 text-center ">
-                            <h2 class="section-heading ">Resumen</h2>
-                            <p class="text-muted">En Colombia, las entidades estatales están obligadas a publicar su actividad contractual en el Sistema Electrónico de Contratación Pública (SECOP I) como un mecanismo de transparencia abierto al público. Mediante técnicas de visualización interactiva, buscamos evaluar qué tan efectivamente el público general puede realizar escrutinio de los datos de contratación pública en los últimos 10 años que es el tiempo durante el cual el SECOP I ha estado en vigencia.</p>
+                            <h2 class="section-heading ">Conclusions</h2>
+                            <ul>
+                            <li class="text-justify">The Policía Nacional is the entity with the largest amount of duly reported contracts and the one that has given the most amount of money in contracts between 2011 and 2017. The Unidad de Protección Nacional and the Instituto Nacional de Vías are the runners-up as the entities with the largest amount of contractors in the same period of time.</li><br>
+                            <li class="text-justify">The organizations with more contractual relationships with government entities belong to the IT business (COLOMBIANA DE SOFTWARE Y HARDWARE), fuel distribution business (DISTRACOM), and human resources outsourcing (SUMIMAS).</li><br>
+                            <li class="text-justify"> The contractors that have received the largest amount of public funds are CONSORCIO ALIANZA POPULAR (single contract with the Ministry of Agriculture), UNION TEMPORAL PROTECCION COLOMBIA 4-16 (single contract with Unidad Nacional de Protección), and CONSORCIO LA LINEA (from Instituto Nacional de Vías).</li><br>
+                            <li class="text-justify">Interestingly, out of the total amount of funding that CONSORCIO LA LINEA has received, none of it has been catalogued as an addition to contract.</li><br>
+                            <li class="text-justify">Bogotá has the largest amount of late contracts, summing up to 688 registries, in the period 2006 - 2016, especially in 2012.</li><br>
+                            <li class="text-justify">Floridablanca has the late contract with the largest amount of invested money with 300,000,000,000 pesos</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="row ">
                         <div class="col-lg-12 text-center ">
                             <h2 class="section-heading ">Nota Metodológica</h2>
-                            <p class="text-muted">
-                                Este proyecto de visualización y análisis de datos surge como una actividad académica que pretende contribuir al empoderamiento del ciudadano facilitando esta herramientas para informar mejor al ciudadano y pueda sacar sus propias conclusiones y determine por sí mismo la eficacia del Sistema de Compra Pública.
+                            <p class="text-justify">
+                                The dataset was recovered from the Datos Abiertos de Colombia website, containing the entries uploaded from 2010 until September 2017 for a total amount of near 5,520,488 registros (6.9 GB) aprox.
                             </p>
-                            <p class="text-muted">
-                                Se accedió a la información a través de la plataforma de Datos Abiertos de los contratos cargados en SECOP I desde el año 2010 hasta Septiembre de 2.017 equivalentes a 5.520.488 registros (6.965 Mbytes) aprox.
-                            </p>
-                            <p class="text-muted">
-                                Para la construcción de este proyecto se utilizaron herramientas de software de código abierto como R, PostgreSQL y librerías de D3.
+                            <p class="text-justify">
+                                The data processing for this project involved open software tools like R Statistical Learning, PostgreSQL, and D3 libraries used for building the visualization.
                             </p>
                         </div>
                         
