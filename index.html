@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -17,6 +16,7 @@
     <script src="./js/d3.v4.min.js"></script>
     <script src="./js/d3-scale-chromatic.v0.3.min.js"></script>
     <script src="./js/d3-annotation.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.24.0/d3-legend.min.js"></script>
 
     <!-- Bootstrap -->
     <script src="./js/bootstrap.min.js"></script>
@@ -39,16 +39,16 @@
 </head>
 
 <body class="viewing-page-1">
-	<ul class="onepage-pagination">
-		<li><a data-index="1" href="/#1" class="active"></a></li>
-		<li><a data-index="2" href="/#2" class=""></a></li>
-		<li><a data-index="3" href="/#3"></a></li>
-		<li><a data-index="4" href="/#4"></a></li>
-		<li><a data-index="5" href="/#5"></a></li>
-		<li><a data-index="6" href="/#6"></a></li>
-		<li><a data-index="7" href="/#7"></a></li>
-		<li><a data-index="8" href="/#8"></a></li>
-	</ul>
+    <ul class="onepage-pagination">
+        <li><a data-index="1" href="/#1" class="active"></a></li>
+        <li><a data-index="2" href="/#2" class=""></a></li>
+        <li><a data-index="3" href="/#3"></a></li>
+        <li><a data-index="4" href="/#4"></a></li>
+        <li><a data-index="5" href="/#5"></a></li>
+        <li><a data-index="6" href="/#6"></a></li>
+        <li><a data-index="7" href="/#7"></a></li>
+        <li><a data-index="8" href="/#8"></a></li>
+    </ul>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -70,7 +70,7 @@
                     <li><a>Sección 2</a></li>
                     <li><a>Vis 2</a></li>
                     <li><a>Sección 3</a></li>
-					<li><a>Vis 3</a></li>
+                    <li><a>Vis 3</a></li>
                     <li class=""><a>Resumen</a></li>
                 </ul>
             </div>
@@ -82,13 +82,13 @@
                 <div class="container">
                     <div class="intro-text">
                         <div class="intro-heading">¿Qué tan efectivas son las herramientas de transparencia para la contratación en Colombia?</div>
-						<br>
+                        <br>
                         <blockquote>
                             "El patriotismo que necesitamos no es el de los valientes sino de los que saben, para que guíen y enseñen al pueblo los senderos que ha trazado la vida moderna."
                             <br>
                             <cite>-- Vicente Lombardo Toledano</cite>
                         </blockquote>
-						<p class="intro-note "><span class="section-note">Nota: Por favor, utilice Chrome para ver este contenido. Es posible que no funcione correctamente en otros navegadores.</span></p>
+                        <p class="intro-note "><span class="section-note">Nota: Por favor, utilice Chrome para ver este contenido. Es posible que no funcione correctamente en otros navegadores.</span></p>
                     </div>
                 </div>
             </div>
@@ -106,13 +106,13 @@
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
                             <p class="text-muted">Según la Auditoría General de la República de Colombia, la contratación pública se basa en siete principios que garantizarán que quien reciba los contratos esté en condiciones de cumplirlos. Uno de los principios es el de la transparencia, que garantiza la publicidad de los documentos del proceso de selección y contradicción de los informes y actuaciones surgidos dentro del proceso, así como la libre concurrencia e igualdad de oportunidades para quienes intervengan en él.
-							</p>
-							<br>
-							<p class="text-muted">En Colombia, las Entidades Estatales están obligadas a publicar su actividad contractual en el Sistema Electrónico de Contratación Pública (SECOP I) y se basa en la premisa de que los contratos son ejecutados con recursos de los contribuyentes para entregar bienes y servicios a la ciudadanía, y que en consecuencia todas las personas deben tener acceso libre a esta información. Estos datos los recolecta la Agencia Nacional de Contratación Pública - Colombia Compra Eficiente. 
-							</p>
-							<br>
-							<p class="text-muted">Tomando como base la información suministrada por el portal de datos abiertos del Gobierno de Colombia, de los procesos de contratación pública desde el año 2006 hasta el año 2017, se formulan varios interrogantes alrededor de la efectividad de la herramienta como un medio para fomentar la transparencia y se proponen diferentes técnicas de visualización que permitan responder dichas preguntas. Con la presentación de esta información, se pretende que el usuario tenga suficientes elementos de juicio para analizar la eficacia y el valor estratégico del sistema de compra pública en Colombia. 
-							</p>					
+                            </p>
+                            <br>
+                            <p class="text-muted">En Colombia, las Entidades Estatales están obligadas a publicar su actividad contractual en el Sistema Electrónico de Contratación Pública (SECOP I) y se basa en la premisa de que los contratos son ejecutados con recursos de los contribuyentes para entregar bienes y servicios a la ciudadanía, y que en consecuencia todas las personas deben tener acceso libre a esta información. Estos datos los recolecta la Agencia Nacional de Contratación Pública - Colombia Compra Eficiente. 
+                            </p>
+                            <br>
+                            <p class="text-muted">Tomando como base la información suministrada por el portal de datos abiertos del Gobierno de Colombia, de los procesos de contratación pública desde el año 2006 hasta el año 2017, se formulan varios interrogantes alrededor de la efectividad de la herramienta como un medio para fomentar la transparencia y se proponen diferentes técnicas de visualización que permitan responder dichas preguntas. Con la presentación de esta información, se pretende que el usuario tenga suficientes elementos de juicio para analizar la eficacia y el valor estratégico del sistema de compra pública en Colombia. 
+                            </p>                    
                         </div>
                         <div class="col-md-2"></div>
                     </div>
@@ -132,50 +132,57 @@
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
                             <p class="text-muted">La contratación estatal en Colombia está regida por un marco regulatorio que pretende dar transparencia al proceso de adquisición. Bajo la anterior premisa, se asume que en SECOP I, se publica la gran mayoría de los procesos de compra estatal. Sin embargo se ha encontrado que no está publicada información de contratos de grandes cuantías y un considerable cantidad de contratos con ésta caracterización.
-							</p>
-	                     </div>
+                            </p>
+                         </div>
                         <div class="col-md-2"></div>
                     </div>
                 </div>
             </div>
         </section>
-		<section class="page4 vis-layout section" data-index="4" style="position: absolute; top: 300%; left: 0px;">
+        <section class="page4 vis-layout section" data-index="4" style="position: absolute; top: 300%; left: 0px;">
             <div class="chapter" id="vis-secop">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <h2 class="section-heading">Visualización 1</h2>
                             <h3 class="section-subheading">Sub-título</h3>
-                            <p class="text-muted">Parrafo</p>							
+                            <p class="text-muted">Parrafo</p>                           
                         </div>
                     </div>
                     <div class="row" id="stock-container">
-                        <div class="col-lg-8 red_contratistas"></div>
-                        <div class="col-lg-4"></div>
-                        <script src="./js/section-1/red_contratistas.js"></script>
-					 </div>
+                        <div class="col-lg-8">
+                            <svg></svg>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="insights-wrapper" style="margin-top: 20px; height: 334.101px;"><h2 class="insights-header">Insights Clave</h2><p class="insights-text">Descripción insights</p></div>
+                        </div>
+                     </div>
                 </div>
-            </div>		
+            </div>      
         </section> 
         <section class="page5 chapter-intro section" data-index="5" style="position: absolute; top: 400%; left: 0px;">
             <div class="chapter" id="stock">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 text-center">
-                            <h2 class="section-heading">Sección 2: Elefantes Blancos en SECOP I</h2>
+                            <h2 class="section-heading">Part 2: Delayed contracts according to SECOP 1</h2>
                             <h3 class="section-subheading"></h3>
                         </div>
                     </div>
                     <div class="row text-center">
                         <div class="col-md-2"></div>
                         <div class="col-md-8">
-							<p class="text-muted">Un “Elefante Blanco” es una obra pública de construcción, mantenimiento o instalación de un bien inmueble, la cual tiene un impacto negativo para la comunidad debido a que ha sido abandonada o está  inconclusa,  sus costos superan los beneficios de su funcionamiento, no es utilizada, o su uso es diferente para aquel que fue creada.
+                            <p class="text-muted">
+                                Pulbic constructions always have a start date for the proyect and a specific duration, with an extension or two along the way. However not all constructions are delivered in time, even with extensions. This could path the way to bad investments or even constructions that never ended. Without a penalty fee for anyone along the way. 
                             </p>
-							<br>
-							<p class="text-muted">Se pretende en este estudio, identificar, caracterizar y cuantificar los procesos de contratación que pueden convertirse en “Elefantes Blancos”. Igualmente se pretende comparar la cantidad de “elefantes blancos” que fueron producidos por contratos firmados en un año especifico.
-							</p>
-	                     </div>
-                        <div class="col-md-2"></div>
+                            <br>
+                            <p class="text-muted">
+                                In this proyect we intend to identify, cuantify and characterize the contracts that have been delivered late and could become constructions that never ended. Also we wanted to compare the amount of late contracts that were produced in the year they were signed, or in the place they were developed. 
+                            </p>
+                         </div>
+                        <div class="col-md-2">
+                            
+                        </div>
                     </div>
                 </div>
         </div></section>
@@ -184,20 +191,34 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
-                            <h2 class="section-heading">Visualización 2</h2>
-							<h3 class="section-subheading">Sub-título</h3>
-                            <p class="text-muted">Parrafo</p>
+                            <h2 class="section-heading">Late contracts: Free money</h2>
+                            <h3 class="section-subheading">Viz about the amount of late contracts made per year in a specific place</h3>
+                            <p class="text-muted"></p>
                         </div>
                     </div>
                     <div class="row" id="stock-container">
-                        <div class="col-lg-8">
-                            <svg></svg>
-                        </div>
+                        <div id="vis2" class="col-lg-8">
+                            <div class="area">
+                                 <div class="mask" href="https://campy8a.github.io/Pryct/">
+                                    <div class="vertical-align">
+                                     <i class="fa fa-line-chart" href="https://campy8a.github.io/Pryct/" ></i>
+                                    <p><a href="https://campy8a.github.io/Pryct/" >See diagram</a></p>
+                                    </div> <!-- End Vertical Align -->
+                                </div> <!-- End Mask / Hover -->
+                                <img href="https://campy8a.github.io/Pryct/" src="img/scatterplot-preview-v2.png" alt="viz" class="img-responsive">
+                            </div> <!-- End Area -->
+                         </div> <!-- End Visualization -->
+                            
+                   
                         <div class="col-lg-4">
-                            <div class="insights-wrapper" style="margin-top: 20px; height: 334.101px;"><h2 class="insights-header">Insights Clave</h2><p class="insights-text">Descripción insight</p></div>
+                            <div class="insights-wrapper" style="margin-top: 20px; height: 400px;"><h2 class="insights-header">Key Insights</h2><p class="insights-text"><ul>
+                                <li> See: the amount of late contracts per municipality</li>
+                                <li> See: the amount of money per late contract</li>
+                                <li> See: The diference between the stipulated date and the delivery date</li>
+                                </ul> </p></div>
                         </div>
-					 </div>
-				</div>
+                     </div>
+                </div>
             </div>
         </section>
         <section class="page8 chapter-intro section" data-index="7" style="position: absolute; top: 700%; left: 0px;">
@@ -213,17 +234,17 @@
                         <div class="col-lg-2"></div>
                         <div class="col-lg-8 text-center">
                             <p class="text-muted">
-								Uno de los principios de la contratación estatal, por los cuales se rige SECOP I, es el principio de la Economía, que busca que los recursos públicos se asignen entre objetivos alternativos y en búsqueda de los más altos rendimientos sociales. Otro de los principios es el de la Eficiencia, que busca determinar que los bienes y servicios adquiridos por las Entidades se adquieren al mejor costo estando estos en las mismas condiciones de calidad.	
-							</p>
+                                Uno de los principios de la contratación estatal, por los cuales se rige SECOP I, es el principio de la Economía, que busca que los recursos públicos se asignen entre objetivos alternativos y en búsqueda de los más altos rendimientos sociales. Otro de los principios es el de la Eficiencia, que busca determinar que los bienes y servicios adquiridos por las Entidades se adquieren al mejor costo estando estos en las mismas condiciones de calidad. 
+                            </p>
                             <p class="text-muted">
-								La contratación estatal en Colombia está regida por un marco regulatorio que pretende dar transparencia al proceso de adquisición. Con este propósito el contenido mínimo de los pliegos de condiciones establecen parámetros o exigencias mínimas, entre los cuales se establecen las fechas y plazos para la liquidación del contrato, como factores de calificación objetiva que permitirán seleccionar la propuesta más conveniente a la administración pública contratante.
-							</p>
+                                La contratación estatal en Colombia está regida por un marco regulatorio que pretende dar transparencia al proceso de adquisición. Con este propósito el contenido mínimo de los pliegos de condiciones establecen parámetros o exigencias mínimas, entre los cuales se establecen las fechas y plazos para la liquidación del contrato, como factores de calificación objetiva que permitirán seleccionar la propuesta más conveniente a la administración pública contratante.
+                            </p>
                             <p class="text-muted">
-								La ineficiencia es una de las causas más importante de la corrupción. La ineficiencia reduce la calidad de los productos y servicios contratados por el Estado y crea estímulos tanto para que el oferente ofrezca dinero a cambio de la obtención del contrato como para que el funcionario se involucre en las transacciones de compra.
-							</p>
+                                La ineficiencia es una de las causas más importante de la corrupción. La ineficiencia reduce la calidad de los productos y servicios contratados por el Estado y crea estímulos tanto para que el oferente ofrezca dinero a cambio de la obtención del contrato como para que el funcionario se involucre en las transacciones de compra.
+                            </p>
                             <p class="text-muted">
-								Para efectos de determinar en qué medida se cumplen los principios de Economía y Eficiencia de la contratación estatal, causando en consecuencia hechos de corrupción, se evalúan estos parámetros para determinar los procesos de contratación con costos y tiempos que superan los parámetros estipulados en los pliegos de condiciones.
-							</p>							
+                                Para efectos de determinar en qué medida se cumplen los principios de Economía y Eficiencia de la contratación estatal, causando en consecuencia hechos de corrupción, se evalúan estos parámetros para determinar los procesos de contratación con costos y tiempos que superan los parámetros estipulados en los pliegos de condiciones.
+                            </p>                            
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
@@ -235,47 +256,47 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <h2 class="section-heading">Visualización</h2>
-							<h3 class="section-subheading">Contratos que infringen los principios de Economía y Eficiencia</h3>
-							<br>
+                            <h3 class="section-subheading">Contratos que infringen los principios de Economía y Eficiencia</h3>
+                            <br>
                             <p class="text-muted">
-								En el siguiente diagrama se observa por año y por tipo de entidad territorial, los contratos con cuantías superiores a $ 50.000.000 y adiciones en tiempo y en costos superiores al 25%, firmados durante el período 2006 - 2015.
-							</p>	
-							<p class="text-muted">
-								El tamaño del círculo expresa el Valor Total de Adiciones al Contrato. 
-							</p>
-							<p class="text-muted">
-								La Cuantía del Contrato (Eje "Y") se expresa en unidades de Millón.
-							</p>
-							<p class="text-muted">
-								Los valores eje “X” por defecto corresponden a la variable “Exceso Costos.”
-							</p>
+                                En el siguiente diagrama se observa por año y por tipo de entidad territorial, los contratos con cuantías superiores a $ 50.000.000 y adiciones en tiempo y en costos superiores al 25%, firmados durante el período 2006 - 2015.
+                            </p>    
+                            <p class="text-muted">
+                                El tamaño del círculo expresa el Valor Total de Adiciones al Contrato. 
+                            </p>
+                            <p class="text-muted">
+                                La Cuantía del Contrato (Eje "Y") se expresa en unidades de Millón.
+                            </p>
+                            <p class="text-muted">
+                                Los valores eje “X” por defecto corresponden a la variable “Exceso Costos.”
+                            </p>
                         </div>
                     </div>
-					<div class="col-md-3">
-						<div class="area">
-						  <div class="mask">
-							<div class="vertical-align">
-								<i class="fa fa-line-chart"></i>
-								<p><a href="./html/section-3/scatterplot-01.html" target = "_blank">Ver Diagrama</a></p>
-							</div> <!-- End Vertical Align -->
-						  </div> <!-- End Mask / Hover -->
-						  <img src="img/scatterplot-preview-01.png" alt="viz" class="img-responsive">
-						</div> <!-- End Area -->
-					</div> <!-- End Visualization -->
-					<div class="row" id="stock-container">
+                    <div class="col-md-3">
+                        <div class="area">
+                          <div class="mask">
+                            <div class="vertical-align">
+                                <i class="fa fa-line-chart"></i>
+                                <p><a href="./html/section-3/scatterplot-01.html" target = "_blank">Ver Diagrama</a></p>
+                            </div> <!-- End Vertical Align -->
+                          </div> <!-- End Mask / Hover -->
+                          <img src="img/scatterplot-preview-01.png" alt="viz" class="img-responsive">
+                        </div> <!-- End Area -->
+                    </div> <!-- End Visualization -->
+                    <div class="row" id="stock-container">
                         <div class="col-md-3">
                         </div>
                         <div class="col-lg-8">
                             <div class="insights-wrapper" style="margin-top: 10px; height: 270px;"><h2 class="insights-header">Insights Claves</h2>
-								<p class="insights-text">En el año 2.012 se presentaron sobre-costos en contratación por valor de 9,3 billones de pesos. Con esta cifra se hubieran podido construir 147.242 viviendas gratis.</p>
-								<p class="insights-text">Las Entidades del Orden Nacional, informaron sobre-costos por valor de 17,45 billones de pesos.</p>
-								<p class="insights-text">Las Entidades del Orden Territorial, informaron sobre-costos por valor de 8,13 billones de pesos.</p>
-							</div>
+                                <p class="insights-text">En el año 2.012 se presentaron sobre-costos en contratación por valor de 9,3 billones de pesos. Con esta cifra se hubieran podido construir 147.242 viviendas gratis.</p>
+                                <p class="insights-text">Las Entidades del Orden Nacional, informaron sobre-costos por valor de 17,45 billones de pesos.</p>
+                                <p class="insights-text">Las Entidades del Orden Territorial, informaron sobre-costos por valor de 8,13 billones de pesos.</p>
+                            </div>
                         </div>
-					 </div>
-				</div>
+                     </div>
+                </div>
             </div>
-		</section>
+        </section>
         <section class="page12 section" data-index="9" style="position: absolute; top: 1200%; left: 0px;">
             <div class="chapter" id="summary">
                 <div class="container">
@@ -289,27 +310,27 @@
                         <div class="col-lg-12 text-center ">
                             <h2 class="section-heading ">Nota Metodológica</h2>
                             <p class="text-muted">
-								Este proyecto de visualización y análisis de datos surge como una actividad académica que pretende contribuir al empoderamiento del ciudadano facilitando esta herramientas para informar mejor al ciudadano y pueda sacar sus propias conclusiones y determine por sí mismo la eficacia del Sistema de Compra Pública.
-							</p>
-							<p class="text-muted">
-								Se accedió a la información a través de la plataforma de Datos Abiertos de los contratos cargados en SECOP I desde el año 2010 hasta Septiembre de 2.017 equivalentes a 5.520.488 registros (6.965 Mbytes) aprox.
-							</p>
-							<p class="text-muted">
-								Para la construcción de este proyecto se utilizaron herramientas de software de código abierto como R, PostgreSQL y librerías de D3.
-							</p>
+                                Este proyecto de visualización y análisis de datos surge como una actividad académica que pretende contribuir al empoderamiento del ciudadano facilitando esta herramientas para informar mejor al ciudadano y pueda sacar sus propias conclusiones y determine por sí mismo la eficacia del Sistema de Compra Pública.
+                            </p>
+                            <p class="text-muted">
+                                Se accedió a la información a través de la plataforma de Datos Abiertos de los contratos cargados en SECOP I desde el año 2010 hasta Septiembre de 2.017 equivalentes a 5.520.488 registros (6.965 Mbytes) aprox.
+                            </p>
+                            <p class="text-muted">
+                                Para la construcción de este proyecto se utilizaron herramientas de software de código abierto como R, PostgreSQL y librerías de D3.
+                            </p>
                         </div>
-						
+                        
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
                             <h2 class="section-heading text-center">Fuentes</h2>
                             <p class="text-muted">SECOP I - Publicidad de los Documentos del Proceso de Contratación: <a href="https://www.colombiacompra.gov.co/">Colombia Compra</a></p>
-                            <p><span class="underline bold text-center ">Fuente de Datos</span></p>							
+                            <p><span class="underline bold text-center ">Fuente de Datos</span></p>                         
                             <p class="text-muted">1. Información del Sistema de Compra Pública en Datos Abiertos <a href="https://www.colombiacompra.gov.co/transparencia/gestion-documental/datos-abiertos">Colombia Compra
-							</a></p>
-							<p class="text-muted">2. Plataforma de datos abiertos Colombia <a href="
-							https://www.datos.gov.co/Gastos-Gubernamentales/SECOP-I-Consolidado/ewm2-yzgs">datos.gov.co
-							</a></p>
+                            </a></p>
+                            <p class="text-muted">2. Plataforma de datos abiertos Colombia <a href="
+                            https://www.datos.gov.co/Gastos-Gubernamentales/SECOP-I-Consolidado/ewm2-yzgs">datos.gov.co
+                            </a></p>
                         </div>
                         <div class="col-lg-6">
                             <h2 class="section-heading text-center">Quienes Somos</h2>
