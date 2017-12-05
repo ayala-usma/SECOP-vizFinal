@@ -1,6 +1,6 @@
 //Canvas dimensions and margins
 var width = 1100,
-    height = 850;
+    height = 600;
 
 var margin = {
     top: 10,
