@@ -11,6 +11,8 @@ var margin = {
 
 var dotScale = [];
 var dotScaleValues = [];
+var linkScale = [];
+var linkScaleValues = [];
 
 //Creation of a categorical color scale for the nodes according to their group membership (Requires d3 Chromatic library)
 var color = d3.scaleOrdinal(d3.schemeDark2);
@@ -36,40 +38,50 @@ var forceSimulation = d3.forceSimulation()
             .force("center", d3.forceCenter((width / 2), (height / 2)));
 
 //Read the JSON formatted data
-d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contratistas.json", function(error, data) {
+d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contratistas.json", function(error, data) {
   if (error) throw error;
 
   //Variables containing nodes and edges
   var nodes = data.nodes;
   var edges = data.links;
 
+  //Creation of the size scale for the nodes and the links width
+  var nodeSize = d3.scaleLinear().domain(d3.extent(nodes.map(function(d) { return +d.cuantiaContratos; })))
+                   .range([1.7,40]);
+
+  var edgeSize = d3.scaleLinear().domain(d3.extent(edges.map(function(d) { return +d.key; }))).range([1, 6]);
+
   //Link opacity
-  var linkOpacity = 0.05;
+  var linkOpacity = 0.1;
   
   //Creation of the links of the simulation
   var drawingLinks = svgRedContratistas.selectAll(".link")
                        .data(edges)
                        .enter()
+                       .filter(function (d) {if(d.key > 1) {return this};})
                        .append("path")
                        .attr("class", "line")
-                       .attr("id", function (d, i) { return i; })
+                       .attr("id", function (d, i) {return i;})
                        .attr("fill", "#615")
-                       .attr("stroke-width", function(d){return d.key;})
-                       .filter(function (d) {if(d.key > 0) {return this};});
+                       .attr("stroke-width", function(d){return edgeSize(d.key);})
+                       .attr("opacity", 0);
 
-
-  //Creation of the size scale for the nodes
-  var nodeSize = d3.scaleLinear().domain(d3.extent(nodes.map(function(d) { return +d.cuantiaContratos; })))
-  							 	 .range([1.5,40]);
-
-  //Establishing the scale of the nodes
+  //Establishing the scale of the nodes and links
   var nodeSizesNumbers = nodeSize.domain();                
-  dotScale[0] = nodeSize(nodeSizesNumbers[1] + (950000000000 - nodeSizesNumbers[1]));
+  dotScale[0] = nodeSize(nodeSizesNumbers[1]/10 + (100000000000 - nodeSizesNumbers[1]/10));
   dotScale[1] = nodeSize(nodeSizesNumbers[1]/2 + (500000000000 - nodeSizesNumbers[1]/2));
-  dotScale[2] = nodeSize(nodeSizesNumbers[1]/10 + (100000000000 - nodeSizesNumbers[1]/10));
-  dotScaleValues[0] = nodeSizesNumbers[1] + (950000000000 - nodeSizesNumbers[1]);
+  dotScale[2] = nodeSize(nodeSizesNumbers[1] + (950000000000 - nodeSizesNumbers[1]));
+  dotScaleValues[0] = nodeSizesNumbers[1]/10 + (100000000000 - nodeSizesNumbers[1]/10);
   dotScaleValues[1] = nodeSizesNumbers[1]/2 + (500000000000 - nodeSizesNumbers[1]/2);
-  dotScaleValues[2] = nodeSizesNumbers[1]/10 + (100000000000 - nodeSizesNumbers[1]/10);
+  dotScaleValues[2] = nodeSizesNumbers[1] + (950000000000 - nodeSizesNumbers[1]);
+
+  var linksSizesNumbers = edgeSize.domain();
+  linkScale[0] = edgeSize(linksSizesNumbers[1]/10 + (2 - linksSizesNumbers[1]/10));
+  linkScale[1] = edgeSize(linksSizesNumbers[1]/2 + (8 - linksSizesNumbers[1]/2));
+  linkScale[2] = edgeSize(linksSizesNumbers[1]);
+  linkScaleValues[0] = linksSizesNumbers[1]/10 + (2 - linksSizesNumbers[1]/10);
+  linkScaleValues[1] = linksSizesNumbers[1]/2 + (8 - linksSizesNumbers[1]/2);
+  linkScaleValues[2] = linksSizesNumbers[1];
 
   //Adding the nodes to the canvas
   var drawingNodes = svgRedContratistas.selectAll(".node")
@@ -100,7 +112,7 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
 
   //Ticked function to establish the simulation behavior
 	function ticked() {
-    drawingLinks.attr("d", positionLink)
+    drawingLinks.attr("d", positionLink);
 		drawingNodes.attr("transform", positionNode);
 	}
   
@@ -190,6 +202,7 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
                             .attr("class", "nodeLabel")
                             .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return (this.x + 5); })
                             .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return (this.y + 5); })
+                            .attr("fill", "#666666")
                             .text(function(o) { return o.name });
 
                 // also style link accordingly
@@ -199,7 +212,7 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
 
                 drawingLinks.style("stroke", function(o){
                     return o.source === d || o.target === d ? "#615" : "#000";
-                }); 
+                });
 
             };
         }
@@ -208,49 +221,113 @@ d3.json("https://ayala-usma.github.io/SECOP-visProject/data/section-1/red_contra
         function mouseOut() {
             drawingNodes.style("stroke-opacity", 1);
             drawingNodes.style("fill-opacity", 1);
-            drawingNodes.selectAll("text.nodeLabel").remove();
-            drawingLinks.style("opacity", linkOpacity);
+            drawingNodes.selectAll("text.nodeLabel").remove()
+            drawingLinks.style("opacity", 0.01);
             drawingLinks.style("stroke", "#615");
         }
   
-  //Sphere scale
+  //Circle scale
   svgRedContratistas.selectAll(".scaleDot")
                     .data(dotScale)
                     .enter()
                     .append("circle")
                     .attr("class", "scaleDot")
-                    .attr("cx", margin.left + 80)
-                    .attr("cy", function(d){return height + d})
+                    .attr("cx", width + margin.right)
+                    .attr("cy", function(d,i){return margin.top + 30 + d + (i*50)})
                     .attr("r", function(d){return d})
                     .attr("fill-opacity", 0)
                     .attr("stroke", "#000");
-                    
-console.log(dotScaleValues)
-
+  
+  //Circle scale caption                  
   svgRedContratistas.selectAll(".scaleDotText")
                     .data(dotScaleValues)
                     .enter()
                     .append("text")
                     .attr("class", "figure-legend")
-                    .style("font-size", "12px")
-                    .attr("x", function(d,i){return margin.left + 130})
-                    .attr("y", function(d){return height + 4 + nodeSize(d)})
+                    .style("font-size", "13px")
+                    .attr("x", width - 40)
+                    .attr("y", function(d,i){return margin.top + 33 + nodeSize(d) + (i*50)})
                     .text(function(d) {return numberFormat(d / 1000000)});
+
+  //Circle scale title
+  svgRedContratistas.append("text")
+                    .attr("class","figure-legend")
+                    .style("font-size", "12px")
+                    .attr("x", width - 3*margin.right)
+                    .attr("y", margin.top)
+                    .text("Presupuesto ejecutado (millones de pesos)");
+
+  //Link scale
+  svgRedContratistas.selectAll(".linkScale")
+                    .data(linkScale)
+                    .enter()
+                    .append("rect")
+                    .attr("class", "figure-legend")
+                    .attr("x", width + margin.right - 15)
+                    .attr("y", function(d,i){return height/2 + 5 + d + (i*30)})
+                    .attr("width", 40)
+                    .attr("height", function(d) {return d})
+                    .attr("stroke", "#000")
+                    .attr("fill-opacity", 0);
+
+  //Link scale caption
+  svgRedContratistas.selectAll(".linkScaleText")
+                    .data(linkScaleValues)
+                    .enter()
+                    .append("text")
+                    .attr("class", "figure-legend")
+                    .style("font-size", "13px")
+                    .attr("x", width + margin.right - 45)
+                    .attr("y", function(d,i){return height/2 + 13 + edgeSize(d) + (i*30)})
+                    .text(function(d) {return numberFormat(d)});
+
+  //Link scale title
+  svgRedContratistas.append("text")
+                    .attr("class","figure-legend")
+                    .style("font-size", "12px")
+                    .attr("x", width - 3*margin.right)
+                    .attr("y", height/2 - 25)
+                    .text("Contratos celebrados entre las partes");
+
+  //Node color legend
+  svgRedContratistas.selectAll(".colorLegendShape")
+                    .data(colorGroup)
+                    .enter()
+                    .append("circle")
+                    .attr("cx", width + margin.right)
+                    .attr("cy", function(d,i){return 3*height/4 + 40 + (i*45)})
+                    .attr("r", 15)
+                    .attr("fill", function(d) {return color(colorGroup.indexOf(d))});
+
+  //Node color caption
+  svgRedContratistas.selectAll(".colorLegendText")
+                    .data(colorGroup)
+                    .enter()
+                    .append("text")
+                    .attr("class", "colorLegendText")
+                    .style("font-size", "13px")
+                    .style("text-transform", "capitalize")
+                    .attr("x", width - 40)
+                    .attr("y", function(d,i){return 3*height/4 + 40 + (i*45)})
+                    .text(function(d) {return d});
+
+  //Node color title
+  svgRedContratistas.append("text")
+                    .attr("class","figure-legend")
+                    .style("font-size", "12px")
+                    .attr("x", width - 3*margin.right)
+                    .attr("y", 3*height/4)
+                    .text("Tipo de organización");
+
+
+  //Source caption
+  svgRedContratistas.append("text")
+                    .attr("class","figure-legend")
+                    .attr("x", width - (margin.right + 3))
+                    .attr("y", height + (margin.bottom / 3))
+                    .text("Fuente de los datos: SECOP I");
+
+
+
 });
-
-//Source caption
-svgRedContratistas.append("text")
-                  .attr("class","figure-legend")
-                  .attr("x", width - 4*margin.right)
-                  .attr("y", height + (margin.bottom / 3))
-                  .text("Fuente de los datos: SECOP I");
-
-//Sphere size caption
-svgRedContratistas.append("text")
-                  .attr("class","figure-legend")
-                  .style("font-size", "12px")
-                  .attr("x", 10)
-                  .attr("y", height - 10)
-                  .text("Presupuesto ejecutado (millones de pesos)");
-
 
