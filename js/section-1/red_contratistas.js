@@ -263,7 +263,7 @@ d3.json("https://ayala-usma.github.io/SECOP-vizFinal/data/section-1/red_contrati
             .exit();
 
           drawingNodes.append("text")
-                    .filter(function(o) {connected = isConnected(d,o); if(connected == true) return this;})
+                    .filter(function(o) {connected = isConnected(d,o); if(connected == true && active == true) return this;})
                     .attr("class", "nodeLabel")
                     .attr("x", function(o) { connected = isConnected(d,o); if(connected == true) return (this.x + 5); })
                     .attr("y", function(o) { connected = isConnected(d,o); if(connected == true) return (this.y + 5); })
